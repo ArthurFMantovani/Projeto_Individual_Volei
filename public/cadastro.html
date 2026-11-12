@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papo do Subsolo - Cadastro</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/cadastro.css">
+  <link rel="icon" type="image/svg" href="assets/imgs/determinacao.svg">
+  <style>
+
+  </style>
+</head>
+
+<body onload="listar()">
+  <!--header inicio-->
+  <section id="ativador_header">
+    <header id="header">
+      <div style="width: 28rem;" class="container_principal">
+        <a id="alma_header" onclick="trocar_alma()">
+          <img src="assets/imgs/determinacao.svg" alt="determinação">
+        </a>
+
+        <nav class="lista_texto">
+          <a href="#menu">Menu</a>
+          <a href="#historia">História</a>
+          <a href="personagens.html">Personagens</a>
+          <a href="#discussoes">Discussões</a>
+        </nav>
+      </div>
+
+      <div style="width: 20rem;" class="container_principal">
+        <nav>
+          <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+            <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+          </a>
+        </nav>
+
+        <div class="container_usuario">
+          <a href="login.html">login</a>
+          <a href="cadastro.html">cadastro</a>
+
+          <img src="assets/imgs/save_amarelo.svg" alt="">
+        </div>
+      </div>
+    </header>
+  </section>
+  <!--header fim-->
+
+  <section class="section_cadastro" id="cadastro">
+    <div id="espaco_em_branco">
+    </div>
+
+    <div id="container_principal">
+      <div id="container_mensagem">
+        <div class="caixa_texto">
+          <div>Já possui Cadastro?<br>
+            <a href="login.html">Faça seu Login!</a>
+          </div>
+        </div>
+
+        <img id="echo_flower" src="assets/imgs/echo_flower.svg" alt="">
+      </div>
+
+      <div id="estatua">
+        <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
+      </div>
+
+      <div id="container_main">
+        <div id="main">
+          <div>
+            <div class="titulo_input">
+              Nickname:
+            </div>
+
+            <input id="ipt_nickname" type="text">
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              E-mail:
+            </div>
+
+            <input id="ipt_email" type="text">
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              <label>Senha:</label>
+              <a id="mostrar" onclick="mostrar_senha()">◉</a>
+            </div>
+
+            <input oninput="verificar_senha()" id="ipt_senha" type="password">
+          </div>
+
+          <div class="verificar_senha" id="verificar_senha">
+            <div id="coracoes">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+              <img class="coracao" src="assets/imgs/coracao_vazio.svg" alt="">
+            </div>
+
+            <div id="textos_senha">
+              <label>Letras maiúsculas e minúsculas.</label>
+              <label>Um digito. (0 - 9)</label>
+              <label>Um caractere especial. (Ex: ".", "!", "_")</label>
+            </div>
+          </div>
+
+          <div>
+            <div class="titulo_input">
+              Confirme Sua senha:
+            </div>
+
+            <input id="ipt_confirmacao_senha" type="password">
+          </div>
+
+          <div>
+            <button onclick="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--footer inicio-->
+  <footer>
+
+  </footer>
+  <!--footer fim-->
+
+  <audio id="audio_pagina" loop muted>
+    <source src="assets/music/Fallen_Down.flac" type="audio/flac">
+  </audio>
+</body>
+<script src="js/padroes.js"></script>
+<script>
+  function chover() {
+    let chuva = document.createElement('div');
+    chuva.classList.add('chuva');
+
+    chuva.style.left = Math.random() * 97 + 'vw';
+
+    let tempo_animacao = Math.random() * 1 + 0.5;
+    chuva.style.animationDuration = tempo_animacao + 's';
+
+    document.body.appendChild(chuva);
+
+    setTimeout(() => {
+      chuva.remove();
+    }, tempo_animacao * 1000);
+  }
+
+  setInterval(chover, 50);
+
+  function mostrar_senha() {
+    let tipo_input = ipt_senha.type
+
+    if (tipo_input == 'password') {
+      mostrar.innerHTML = '◎'
+      ipt_senha.type = 'text'
+    } else {
+      mostrar.innerHTML = '◉'
+      ipt_senha.type = 'password'
+    }
+  }
+
+  function verificar_senha() {
+    let senha = ipt_senha.value
+  }
+
+  // Array para armazenar empresas cadastradas para validação de código de ativação 
+  let listaEmpresasCadastradas = [];
+
+  function cadastrar() {
+    // aguardar();
+
+    //Recupere o valor da nova input pelo nome do id
+    // Agora vá para o método fetch logo abaixo
+    var nomeVar = nome_input.value;
+    var emailVar = email_input.value;
+    var senhaVar = senha_input.value;
+    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var codigoVar = codigo_input.value;
+    var idEmpresaVincular
+
+    // Verificando se há algum campo em branco
+    if (
+      nomeVar == "" ||
+      emailVar == "" ||
+      senhaVar == "" ||
+      confirmacaoSenhaVar == "" ||
+      codigoVar == ""
+    ) {
+      cardErro.style.display = "block";
+      mensagem_erro.innerHTML =
+        "(Mensagem de erro para todos os campos em branco)";
+
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
+
+    // Verificando se o código de ativação é de alguma empresa cadastrada
+    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
+        idEmpresaVincular = listaEmpresasCadastradas[i].id
+        console.log("Código de ativação válido.");
+        break;
+      } else {
+        cardErro.style.display = "block";
+        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
+        finalizarAguardar();
+      }
+    }
+
+    // Enviando o valor da nova input
+    fetch("/usuarios/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // crie um atributo que recebe o valor recuperado aqui
+        // Agora vá para o arquivo routes/usuario.js
+        nomeServer: nomeVar,
+        emailServer: emailVar,
+        senhaServer: senhaVar,
+        idEmpresaVincularServer: idEmpresaVincular
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          cardErro.style.display = "block";
+
+          mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+          setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar();
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        finalizarAguardar();
+      });
+
+    return false;
+  }
+
+  // Listando empresas cadastradas 
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+          empresas.forEach((empresa) => {
+            listaEmpresasCadastradas.push(empresa);
+
+            console.log("listaEmpresasCadastradas")
+            console.log(listaEmpresasCadastradas[0].codigo_ativacao)
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+  function sumirMensagem() {
+    cardErro.style.display = "none";
+  }
+</script>
+
+</html>

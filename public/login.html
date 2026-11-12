@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papo do Subsolo - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="icon" type="image/svg" href="assets/imgs/determinacao.svg">
+    <style>
+
+    </style>
+</head>
+
+<body onload="listar()">
+    <!--header inicio-->
+  <section id="ativador_header">
+    <header id="header">
+      <div style="width: 28rem;" class="container_principal">
+        <a id="alma_header" onclick="trocar_alma()">
+          <img src="assets/imgs/determinacao.svg" alt="determinação">
+        </a>
+
+        <nav class="lista_texto">
+          <a href="#menu">Menu</a>
+          <a href="#historia">História</a>
+          <a href="personagens.html">Personagens</a>
+          <a href="#discussoes">Discussões</a>
+        </nav>
+      </div>
+
+      <div style="width: 20rem;" class="container_principal">
+        <nav>
+          <a id="link_audio" class="link_header" onclick="desmutar_musica()">
+            <img src="assets/imgs/alto_falante_sem_som.svg" alt="">
+          </a>
+        </nav>
+
+        <div class="container_usuario">
+          <a href="login.html">login</a>
+          <a href="cadastro.html">cadastro</a>
+
+          <img src="assets/imgs/save_amarelo.svg" alt="">
+        </div>
+      </div>
+    </header>
+  </section>
+    <!--header fim-->
+
+    <section class="section_login" id="login">
+        <div id="espaco_em_branco">
+        </div>
+
+        <div id="container_principal">
+            <div id="container_mensagem">
+                <div class="caixa_texto">
+                    <div>Não possui cadastro?<br>
+                        <a href="cadastro.html">Cadastre-se agora!</a>
+                    </div>
+                </div>
+
+                <img id="echo_flower" src="assets/imgs/echo_flower.svg" alt="">
+            </div>
+
+            <div id="estatua">
+                <img src="assets/imgs/estatua_guarda_chuva.svg" alt="">
+            </div>
+
+            <div id="container_main">
+                <div id="main">
+                    <div>
+                        <div class="titulo_input">
+                            E-mail:
+                        </div>
+
+                        <input id="ipt_email" type="text">
+                    </div>
+
+                    <div>
+                        <div class="titulo_input">
+                            <label>Senha:</label>
+                            <a id="mostrar" onclick="mostrar_senha()">◉</a>
+                        </div>
+
+                        <input id="ipt_senha" type="password">
+                    </div>
+
+                    <div>
+                        <button onclick="entrar()">Entrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer inicio-->
+    <footer>
+
+    </footer>
+    <!--footer fim-->
+
+    <audio id="audio_pagina" loop muted>
+        <source src="assets/music/Fallen_Down.flac" type="audio/flac">
+    </audio>
+</body>
+<script src="js/padroes.js"></script>
+<script>
+    function chover() {
+        let chuva = document.createElement('div');
+        chuva.classList.add('chuva');
+
+        chuva.style.left = Math.random() * 97 + 'vw';
+
+        let tempo_animacao = Math.random() * 1 + 0.5;
+        chuva.style.animationDuration = tempo_animacao + 's';
+
+        document.body.appendChild(chuva);
+
+        setTimeout(() => {
+            chuva.remove();
+        }, tempo_animacao * 1000);
+    }
+
+    setInterval(chover, 50);
+
+    function mostrar_senha(){
+        let tipo_input = ipt_senha.type
+
+        alert('tipo_input')
+
+        mostrar.innerHTML = '◎'
+    }
+
+    // Array para armazenar empresas cadastradas para validação de código de ativação 
+    let listaEmpresasCadastradas = [];
+
+    function entrar() {
+        aguardar();
+
+        var emailVar = email_input.value;
+        var senhaVar = senha_input.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "./dashboard/cards.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
