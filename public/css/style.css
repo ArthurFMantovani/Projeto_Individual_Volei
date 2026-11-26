@@ -536,3 +536,206 @@ h1, h2, h3 {
 .botao.piscando {
   animation: piscar-botao var(--tempo-piscada) ease-in-out;
 }
+
+.pagina-topo {
+  padding: 72px 0 40px;
+}
+
+.pagina-topo h1 {
+  font-size: 96px;
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+
+.pagina-topo h1 span {
+  display: block;
+  color: var(--marinho);
+}
+
+.pagina-topo p {
+  max-width: 560px;
+  color: var(--tinta-suave);
+  font-size: 18px;
+}
+
+.secao {
+  padding: 72px 0;
+}
+
+.secao-escura {
+  background: var(--papel-escuro);
+}
+
+.linha-tempo {
+  list-style: none;
+  margin-left: 6px;
+  border-left: 2px solid var(--tinta);
+}
+
+.linha-tempo li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 24px;
+  padding: 0 0 44px 40px;
+}
+
+.linha-tempo li:last-child {
+  padding-bottom: 0;
+}
+
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: var(--marinho);
+}
+
+.linha-tempo-ano {
+  font-family: "Anton", sans-serif;
+  font-size: 44px;
+  line-height: 1;
+  color: var(--marinho);
+}
+
+.linha-tempo h3 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.linha-tempo p {
+  max-width: 620px;
+  color: var(--tinta-suave);
+  font-size: 16px;
+}
+
+.numeros {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 40px;
+}
+
+.numero {
+  padding-top: 20px;
+  border-top: 1px solid var(--tinta);
+}
+
+.numero-valor {
+  display: block;
+  margin-bottom: 12px;
+  font-family: "Anton", sans-serif;
+  font-size: 80px;
+  line-height: 1;
+  color: var(--marinho);
+}
+
+.numero p {
+  color: var(--tinta-suave);
+  font-size: 16px;
+}
+
+.numeros-nota {
+  max-width: 640px;
+  margin-top: 56px;
+  padding-left: 20px;
+  border-left: 3px solid var(--marinho);
+  font-size: 17px;
+}
+
+.posicoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.posicao {
+  flex: 1 1 180px;
+  padding: 24px 20px 28px;
+  background: var(--branco);
+  border: 1px solid var(--linha);
+  border-radius: 2px;
+}
+
+.posicao h3 {
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--linha);
+  font-size: 30px;
+  color: var(--marinho);
+}
+
+.posicao p {
+  color: var(--tinta-suave);
+  font-size: 15px;
+}
+
+.curiosidades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px 56px;
+}
+
+.curiosidade {
+  padding-left: 20px;
+  border-left: 3px solid var(--marinho);
+}
+
+.curiosidade h3 {
+  margin-bottom: 8px;
+  font-size: 28px;
+}
+
+.curiosidade p {
+  color: var(--tinta-suave);
+  font-size: 16px;
+}
+
+@media (max-width: 1000px) {
+  .pagina-topo {
+    padding: 48px 0 24px;
+  }
+
+  .pagina-topo h1 {
+    font-size: 64px;
+  }
+
+  .secao {
+    padding: 56px 0;
+  }
+
+  .linha-tempo li {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-left: 28px;
+  }
+
+  .linha-tempo-ano {
+    font-size: 36px;
+  }
+
+  .numeros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .curiosidades {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 600px) {
+  .pagina-topo h1 {
+    font-size: 48px;
+  }
+
+  .numeros {
+    grid-template-columns: 1fr;
+  }
+
+  .numero-valor {
+    font-size: 64px;
+  }
+}
