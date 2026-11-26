@@ -50,6 +50,11 @@ function agendar() {
 }
 
 function avancar() {
+  if (posicao >= total * 2) {
+    posicao -= total;
+    posicionarSemAnimar(posicao * medidas().passo);
+  }
+
   posicao++;
   mover(posicao * medidas().passo);
   agendar();
@@ -81,15 +86,6 @@ trilho.addEventListener("click", (evento) => {
   temporizadorDestaque = setTimeout(retomar, 6000);
 });
 
-trilho.addEventListener("transitionend", (evento) => {
-  if (evento.target !== trilho || emDestaque) return;
-
-  if (posicao >= total * 2) {
-    posicao -= total;
-    posicionarSemAnimar(posicao * medidas().passo);
-    atualizarApagadas(posicao * medidas().passo);
-  }
-});
 
 window.addEventListener("resize", () => {
   clearTimeout(temporizadorDestaque);
