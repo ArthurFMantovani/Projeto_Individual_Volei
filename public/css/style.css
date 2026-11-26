@@ -16,6 +16,7 @@
   --texto: #1e3a5a;
   --texto-suave: #5a6f85;
   --branco: #ffffff;
+  --tempo-piscada: 1.5s;
 }
 
 * {
@@ -501,4 +502,37 @@ h1, h2, h3 {
     font-size: 14px;
     padding: 9px 12px;
   }
+}
+
+@keyframes piscar-fundo {
+  50% {
+    background-color: var(--marinho);
+    color: var(--branco);
+  }
+}
+
+@keyframes piscar-texto {
+  50% {
+    color: var(--branco);
+  }
+}
+
+@keyframes piscar-botao {
+  50% {
+    background-color: var(--papel);
+    color: var(--marinho);
+  }
+}
+
+.piscando {
+  animation: piscar-fundo var(--tempo-piscada) ease-in-out;
+}
+
+.piscando p,
+.piscando .card-numero {
+  animation: piscar-texto var(--tempo-piscada) ease-in-out;
+}
+
+.botao.piscando {
+  animation: piscar-botao var(--tempo-piscada) ease-in-out;
 }
