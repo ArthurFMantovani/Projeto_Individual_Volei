@@ -6,19 +6,24 @@
   <title>Let'sV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
 
   <header class="topo">
     <div class="container topo-conteudo">
-      <a href="#" class="logo">Let's<span>V</span></a>
+      <a href="./index.html" class="logo">Let's<span>V</span></a>
       <nav class="menu">
-        <a href="#" class="ativo">Trajetória</a>
-        <a href="#">História</a>
-        <a href="#">Quiz</a>
+        <a href="./index.html" class="ativo">Início</a>
+        <a href="./trajetoria.html">Trajetória</a>
+        <a href="./historia.html">História</a>
+        <a href="./quiz.html">Quiz</a>
       </nav>
+      <div class="topo-acoes">
+        <a href="./cadastro.html#cadastro" class="botao-cadastro">Criar conta</a>
+        <a href="./cadastro.html" class="botao-entrar">Entrar</a>
+      </div>
     </div>
   </header>
 
@@ -26,26 +31,22 @@
     <section class="hero">
       <div class="container hero-conteudo">
         <div class="hero-texto">
-          <span class="etiqueta">Paixão que atravessa a rede</span>
           <h1>O jogo é <span>parte de mim.</span></h1>
-          <p>Conheça Arthur, explore sua jornada pelas quadras e descubra o esporte que transforma cada jogo em uma nova história.</p>
-          <a href="#" class="botao">Conhecer a trajetória <span>↗</span></a>
+          <p>Let'sV. O site que conta a minha trajetória no vôlei, times, jogos e aprendizados dentro de quadra.</p>
+          <a href="#card-trajetoria" class="botao">Conhecer a trajetória <span>↗</span></a>
         </div>
-      </div>
-      <div class="hero-imagem">
-        <img src="./assets/imgs/heroImg.jpg" alt="Imagem hero atqSL">
-        <span class="hero-legenda">A evolução de um sonho.</span>
+        <figure class="hero-imagem">
+          <img src="./assets/imgs/heroImg.jpg" alt="Jogador saltando para atacar a bola em um jogo de vôlei">
+          <figcaption>A evolução de um sonho.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="galeria">
+    <section class="galeria" id="galeria">
       <div class="container">
         <div class="cabecalho-secao">
-          <div>
-            <span class="etiqueta">Conheça a história de um atleta</span>
-            <h2>A trajetória em imagens.</h2>
-          </div>
-          <p>Do foco antes do jogo à conexão com a equipe: momentos reais de uma paixão que cresce a cada set.</p>
+          <h2>Minha trajetória em imagens.</h2>
+          <p>Fotos de jogos, treinos e viagens com os times. Clique em uma para ver com mais calma.</p>
         </div>
 
         <div class="carrossel">
@@ -90,37 +91,37 @@
     <section class="universo">
       <div class="container">
         <div class="cabecalho-secao">
-          <div>
-            <span class="etiqueta">Descubra o universo do vôlei</span>
-            <h2>Mais que um esporte.</h2>
-          </div>
-          <p>Uma jornada de treino, trabalho em equipe e desafios. Escolha por onde começar.</p>
+          <h2>Mais que um esporte.</h2>
+          <p>Escolha por onde começar.</p>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <div class="card-icone">⛓</div>
+        <div class="cards" id="card-trajetoria">
+          <a href="./trajetoria.html" class="card">
+            <span class="card-numero">01</span>
             <h3>Minha trajetória</h3>
-            <p>Uma visão da caminhada de Arthur, da formação nos clubes à experiência em competições.</p>
-          </article>
-          <article class="card">
-            <div class="card-icone">📖</div>
+            <p>Como eu comecei, por onde passei e o que me motivou a continuar.</p>
+            <span class="card-seta">→</span>
+          </a>
+          <a href="./historia.html" class="card">
+            <span class="card-numero">02</span>
             <h3>História do esporte</h3>
-            <p>Entenda como o vôlei nasceu, evoluiu e conquistou quadras pelo mundo.</p>
-          </article>
-          <article class="card">
-            <div class="card-icone">?</div>
+            <p>Breve introdução ao vôlei com algumas curiosidades.</p>
+            <span class="card-seta">→</span>
+          </a>
+          <a href="#chamada-card" class="card">
+            <span class="card-numero">03</span>
             <h3>Teste seus conhecimentos</h3>
-            <p>Regras, curiosidades e fundamentos em um quiz rápido para todos os níveis.</p>
-          </article>
+            <p>Um quiz rápido para ver quanto você sabe de vôlei.</p>
+            <span class="card-seta">→</span>
+          </a>
         </div>
 
-        <div class="chamada">
+        <div class="chamada" id="chamada-card">
           <div>
-            <h3>Todo ponto tem uma história.</h3>
-            <p>Descubra os momentos que moldam uma trajetória dentro de quadra.</p>
+            <h3>Pronto para um desafio?</h3>
+            <p>Faça o quiz e avalie seu conhecimento sobre o esporte!</p>
           </div>
-          <a href="#" class="botao-contorno">Fazer o quiz <span>→</span></a>
+          <a href="./quiz.html" class="botao">Fazer o quiz <span>→</span></a>
         </div>
       </div>
     </section>
@@ -128,8 +129,8 @@
 
   <footer class="rodape">
     <div class="container rodape-conteudo">
-      <p>© Let'sV · Uma história em movimento.</p>
-      <p>Feito para quem ama o esporte.</p>
+      <a href="./index.html"><p>Let'sV · Projeto Individual</p></a>
+      <p>Arthur Flores Mantovani · SPTech · Ciência da Computação · 2026</p>
     </div>
   </footer>
 
