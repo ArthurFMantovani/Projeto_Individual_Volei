@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <header class="topo">
+  <header class="topo topo-fixo">
     <div class="container topo-conteudo">
       <a href="./index.html" class="logo">Let's<span>V</span></a>
       <nav class="menu">
@@ -29,9 +29,15 @@
 
   <main>
     <section class="pagina-topo">
-      <div class="container">
-        <h1>O vôlei em <span>poucos pontos.</span></h1>
-        <p>Aqui foi separado o essencial para você entender o jogo. <br>Dá para ler em poucos minutos, e tudo o que está aqui <strong>vale ponto.</strong></p>
+      <div class="container pagina-topo-conteudo">
+        <div class="pagina-topo-texto">
+          <h1>O vôlei em <span>poucos pontos.</span></h1>
+          <p>Aqui foi separado o essencial para você entender o jogo. <br>Dá para ler em poucos minutos, e tudo o que está aqui <strong>vale ponto.</strong></p>
+        </div>
+        <figure class="hero-imagem pagina-topo-imagem">
+          <img src="./assets/imgs/quadraHistory.jpg" alt="Quadra de vôlei durante um jogo">
+          <figcaption>Onde tudo acontece.</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -123,7 +129,7 @@
           </div>
         </div>
 
-        <p class="numeros-nota">Hoje, toda jogada vale ponto: quem ganha o rali marca, mesmo sem estar com o saque.</p>
+        <p class="numeros-nota">ponto a cada jogada. Quem vencer a disputa da bola marca, tenha sacado ou não.</p>
       </div>
     </section>
 
@@ -134,36 +140,55 @@
           <p>São as mesmas posições que você escolhe no cadastro do site.</p>
         </div>
 
-        <div class="posicoes">
-          <div class="posicao">
-            <h3>Levantador</h3>
-            <p>Organiza o ataque. Costuma dar o segundo toque, colocando a bola na mão de quem vai atacar.</p>
-          </div>
-          <div class="posicao">
-            <h3>Ponteiro</h3>
-            <p>Ataca pelas pontas da rede, recebe o saque e defende. É um jogador completo.</p>
-          </div>
-          <div class="posicao">
-            <h3>Central</h3>
-            <p>Joga no meio da rede, bloqueia e ataca as bolas rápidas.</p>
-          </div>
-          <div class="posicao">
-            <h3>Oposto</h3>
-            <p>Ataca pelo lado oposto ao do levantador e costuma ser o maior pontuador do time.</p>
-          </div>
-          <div class="posicao">
-            <h3>Líbero</h3>
-            <p>Especialista em defesa e recepção. Usa uniforme de outra cor, não bloqueia e não ataca acima da altura da rede.</p>
-          </div>
-        </div>
-      </div>
+<div class="posicoes">
+  <div class="posicao">
+    <figure class="posicao-foto">
+      <img src="./assets/imgs/levantador.jpg" alt="Levantador">
+      <figcaption>Simeon Nikolov <small>Seleção: Búlgaria</small></figcaption>
+    </figure>
+    <h3>Levantador</h3>
+    <p>Organiza o ataque. Costuma dar o segundo toque, posiciona a bola no ponto perfeito para o atacante.</p>
+  </div>
+  <div class="posicao">
+    <figure class="posicao-foto">
+      <img src="./assets/imgs/ponteiro.jpg" alt="Ponteiro">
+      <figcaption>Wilfredo León <small>Seleção: Polônia</small></figcaption>
+    </figure>
+    <h3>Ponteiro</h3>
+    <p>Ataca pelas pontas da rede, recebe o saque(passe), defende e bloqueia. É um jogador completo.</p>
+  </div>
+  <div class="posicao">
+    <figure class="posicao-foto">
+      <img src="./assets/imgs/central.jpg" alt="Central">
+      <figcaption>Lucas Saatkamp <small>Seleção: Brasil</small></figcaption>
+    </figure>
+    <h3>Central</h3>
+    <p>Joga no meio da rede, bloqueia e ataca as bolas rápidas.</p>
+  </div>
+  <div class="posicao">
+    <figure class="posicao-foto">
+      <img src="./assets/imgs/oposto.jpg" alt="Oposto">
+      <figcaption>Darlan Souza <small>Seleção: Brasil</small></figcaption>
+    </figure>
+    <h3>Oposto</h3>
+    <p>Ataca pelo lado oposto ao do levantador e costuma ser o maior pontuador do time.</p>
+  </div>
+  <div class="posicao">
+    <figure class="posicao-foto">
+      <img src="./assets/imgs/libero.jpg" alt="Líbero">
+      <figcaption>Tomohiro Yamamoto <small>Seleção: Japão</small></figcaption>
+    </figure>
+    <h3>Líbero</h3>
+    <p>Especialista em defesa e recepção. Usa uniforme de outra cor, não bloqueia e não ataca acima da altura da rede.</p>
+  </div>
+</div>
     </section>
 
     <section class="secao secao-escura">
       <div class="container">
         <div class="cabecalho-secao">
           <h2>Curiosidades.</h2>
-          <p>Para contar no intervalo do jogo.</p>
+          <p>Para contar no intervalo de cada set.</p>
         </div>
 
         <div class="curiosidades">
@@ -192,7 +217,7 @@
         <div class="chamada">
           <div>
             <h3>Pronto para o quiz?</h3>
-            <p>Agora é hora de colocar tudo isso em quadra.</p>
+            <p>Agora é hora de colocar tudo o que sabe/aprendeu em prática.</p>
           </div>
           <a href="./quiz.html" class="botao">Fazer quiz <span>→</span></a>
         </div>
@@ -206,6 +231,6 @@
       <p>Arthur Flores Mantovani · SPTech · Ciência da Computação · 2026</p>
     </div>
   </footer>
-
+<script src="./js/navbar.js"></script>
 </body>
 </html>

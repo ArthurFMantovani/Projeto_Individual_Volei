@@ -1,3 +1,5 @@
+/*Script para index de referenciação dentro da propria pagina*/
+
 const linksInternos = document.querySelectorAll('a[href^="#"]');
 
 function esperarFimDaRolagem(aoTerminar) {

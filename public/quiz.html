@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz · Let'sV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/quiz.css" />
+  </head>
+  <body>
+    <header class="topo topo-fixo">
+      <div class="container topo-conteudo">
+        <a href="./index.html" class="logo">Let's<span>V</span></a>
+        <nav class="menu">
+          <a href="./index.html">Início</a>
+          <a href="./trajetoria.html">Trajetória</a>
+          <a href="./historia.html">História</a>
+          <a href="./quiz.html" class="ativo">Quiz</a>
+        </nav>
+        <div class="topo-acoes">
+          <a href="./cadastro.html#cadastro" class="botao-cadastro"
+            >Criar conta</a
+          >
+          <a href="./cadastro.html" class="botao-entrar">Entrar</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="pagina-topo">
+        <div class="container">
+          <h1>Quanto você sabe <span>de vôlei?</span></h1>
+          <p>
+            Escolha, confirme e veja se <strong>vale ponto.</strong> Dica: Leia
+            e preste bastante atenção na página de "História"
+          </p>
+        </div>
+      </section>
+
+      <section class="secao secao-escura">
+        <div class="container">
+          <div class="quiz" id="quiz">
+            <div class="quiz-inicio" id="quiz-inicio">
+              <span class="etiqueta">Antes de começar</span>
+              <h2>10 perguntas. 4 alternativas. <span>Só uma certa.</span></h2>
+              <ul class="quiz-regras">
+                <li>Explore o site antes de começar o Quiz.</li>
+                <li>
+                  Cada resposta correta, indica o quanto você conhece sobre o
+                  esporte.
+                </li>
+                <li>Não tem tempo contado. Pense com calma.</li>
+              </ul>
+              <button type="button" class="botao" id="quiz-comecar">
+                Começar quiz <span>→</span>
+              </button>
+            </div>
+
+            <div class="quiz-jogo" id="quiz-jogo" hidden>
+              <div class="quiz-topo">
+                <p>
+                  Pergunta <strong id="quiz-numero">1</strong> de
+                  <span id="quiz-total">10</span>
+                </p>
+              </div>
+              <div class="quiz-barra">
+                <div class="quiz-barra-preenchida" id="quiz-barra"></div>
+              </div>
+
+              <h2 class="quiz-pergunta" id="quiz-pergunta"></h2>
+
+              <div class="quiz-alternativas" id="quiz-alternativas"></div>
+
+              <div class="quiz-explicacao" id="quiz-explicacao" hidden>
+                <h3 id="quiz-explicacao-titulo"></h3>
+                <p id="quiz-explicacao-texto"></p>
+              </div>
+
+              <div class="quiz-acoes">
+                <button type="button" class="botao" id="quiz-acao" disabled>
+                  Confirmar resposta
+                </button>
+              </div>
+            </div>
+
+            <div class="quiz-resultado" id="quiz-resultado" hidden>
+              <span class="etiqueta">Fim de jogo</span>
+              <h2>Quiz <span>finalizado.</span></h2>
+              <p class="quiz-resultado-texto">
+                Entre ou crie sua conta para ver o seu desempenho e acompanhar
+                sua evolução a cada tentativa.
+              </p>
+              <div class="quiz-acoes">
+                <a href="./cadastro.html#cadastro" class="botao"
+                  >Criar conta <span>→</span></a
+                >
+                <a href="./cadastro.html" class="botao-contorno">Entrar</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="container rodape-conteudo">
+        <a href="./index.html"><p>Let'sV · Projeto Individual</p></a>
+        <p>Arthur Flores Mantovani · SPTech · Ciência da Computação · 2026</p>
+      </div>
+    </footer>
+
+    <script src="./js/navbar.js"></script>
+    <script src="./js/quiz.js"></script>
+  </body>
+</html>
